@@ -1,10 +1,13 @@
 {
   "development": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://fdc-blog.herokuapp.com",
+    "contentApiKey": "226d53b9511879823ca8571aed",
+    "version": "v2"
   },
   "production": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://fdc-blog.herokuapp.com",
+    "contentApiKey": "226d53b9511879823ca8571aed",
+    "version": "v2"
   }
 }
+
