@@ -55,7 +55,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </div>
                             { isHome ?
                                 <div className="site-banner">
-                                    <img src={data.allFile.edges[2].node.childImageSharp.fluid.src} alt=""/>
+                                    <img src={data.allFile.edges[0].node.childImageSharp.fluid.src} alt=""/>
                                     <p className="site-banner-desc">{site.description}</p>
                                 </div> :
                                 null}
