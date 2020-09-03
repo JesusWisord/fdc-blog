@@ -35,7 +35,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <header className="site-head" >
+                    <header className={isHome ? `site-head` : `site-head head-mini`} >
                         <div className="container">
                             <div className="site-mast">
                                 <div className="site-mast-left">
@@ -55,14 +55,16 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </div>
                             { isHome ?
                                 <div className="site-banner">
-                                    <img src={data.allFile.edges[1].node.childImageSharp.fluid.src} alt=""/>
-                                    <p className="site-banner-desc">{site.description}</p>
+                                    <img src={data.Banner.childImageSharp.fluid.src} alt=""/>
                                 </div> :
                                 null}
                             <nav className="site-nav">
                                 <div className="site-nav-left">
                                     {/* The navigation items as setup in Ghost */}
                                     <Navigation data={site.navigation} navClass="site-nav-item" />
+                                    <Link className="site-nav-item" to="/galeria" key={0 + site.navigation.length}>Galería</Link>
+                                    <Link className="site-nav-item" to="/eventos" key={1 + site.navigation.length}>Eventos</Link>
+                                    <Link className="site-nav-item" to="/alertafdc" key={2 + site.navigation.length}>#AlertaFDC</Link>
                                 </div>
                                 <div className="site-nav-right">
                                     <Link className="site-nav-button" to="/acercade">Acerca De</Link>
@@ -105,7 +107,7 @@ DefaultLayout.propTypes = {
     data: PropTypes.shape({
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
-        allFile: PropTypes.object.isRequired,
+        Banner: PropTypes.object.isRequired,
     }).isRequired,
 }
 
@@ -120,15 +122,11 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                allFile {
-                    edges{
-                      node{
-                        childImageSharp{
-                          fluid(maxWidth: 1500){
+                Banner: file(relativePath: { eq: "Banner.png" }) {
+                    childImageSharp{
+                        fluid(maxWidth: 1500){
                             src
-                          }
                         }
-                      }
                     }
                 }
             }
