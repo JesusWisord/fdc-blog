@@ -53,6 +53,7 @@ module.exports = {
                 name: `images`,
             },
         },
+        `gatsby-plugin-sass`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         {

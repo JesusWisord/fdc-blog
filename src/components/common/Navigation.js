@@ -20,7 +20,7 @@ const Navigation = ({ data, navClass }) => (
             } else {
                 return <Link className={navClass} to={navItem.url} key={i}>{navItem.label}</Link>
             }
-        })}
+        })}        
     </>
 )
 
