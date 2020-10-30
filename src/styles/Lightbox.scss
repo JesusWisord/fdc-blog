@@ -35,7 +35,9 @@
     object-fit: cover;
   }
   .buttonModal{
-    width: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     border-radius: 5px;
   }
 }
