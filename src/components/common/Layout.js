@@ -49,7 +49,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 <div className="site-mast-right">
                                     { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><FaTwitter className="site-nav-icon" alt="Twitter" /></a>}
                                     { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><FaFacebook className="site-nav-icon" alt="Facebook" /></a>}
-                                    <a href="https://www.instagram.com/fdcradio" className="site-nav-item" target="_blank" rel="noopener noreferrer"><FaInstagram className="site-nav-icon" alt="Facebook" /></a>
+                                    <a href="https://www.instagram.com/fueracloset_ac" className="site-nav-item" target="_blank" rel="noopener noreferrer"><FaInstagram className="site-nav-icon" alt="Facebook" /></a>
                                     <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><FaRss className="site-nav-icon" alt="RSS Feed" /></a>
                                 </div>
                             </div>
