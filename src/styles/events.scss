@@ -15,3 +15,9 @@
     }
   }
 }
+
+@media screen and (max-width: 700px){
+  .eventContainer{
+    grid-template-columns: 1fr;
+  }
+}
