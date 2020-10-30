@@ -23,12 +23,14 @@ const Lightbox = ({ Images }) => {
             </div>
             {showLightbox && (
                 <div className="imageModal" onClick={() => setLightbox(false)}>
+                    <div className="buttonModal">
+                        <button>
+                            X
+                        </button>
+                    </div>
                     <img
                         className="image" 
                         src={selectedImage.node.childImageSharp.fluid.src} />
-                    <button className="buttonModal">
-                        X
-                    </button>
                 </div>
             )}
         </>
