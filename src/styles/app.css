@@ -775,7 +775,7 @@ h6 {
     display: grid;
     justify-content: space-between;
     grid-gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
 }
 
 @media (max-width: 980px) {
@@ -814,6 +814,7 @@ h6 {
 .post-card-excerpt {
     font-size: 1.6rem;
     line-height: 1.55em;
+    word-break: break-word;
 }
 
 .post-card-image {
