@@ -9,7 +9,7 @@ const GalleryComponent = ({ images }) => (
         <div className="container">
             <h1>Galería de actividades</h1>
         </div>
-        <Lightbox Images={ images } />
+        {/* <Lightbox Images={ images } /> */}
     </Layout>
 )
 
