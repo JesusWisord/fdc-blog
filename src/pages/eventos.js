@@ -9,16 +9,21 @@ const EventsComponent = ({ Images }) => (
     <Layout isHome>
         <div className="container">
             <h1>Próximos eventos</h1>
-        </div>
-        <div className="eventContainer">
-            {Images.map(image => (
-                <div 
-                    key={image.node.childImageSharp.fluid.src} 
-                    className="eventImage"
-                >
-                    <img src={image.node.childImageSharp.fluid.src} />
-                </div>
-            ))}
+            {
+                Images.length > 0 ?
+                    <div className="eventContainer">
+                        {Images.map(image => (
+                            <div 
+                                key={image.node.childImageSharp.fluid.src} 
+                                className="eventImage"
+                            >
+                                <img src={image.node.childImageSharp.fluid.src} />
+                            </div>
+                        ))}
+                    </div>
+                    :
+                    <h2>Espera la actualización de los próximos eventos</h2>
+            }
         </div>
     </Layout>
 )

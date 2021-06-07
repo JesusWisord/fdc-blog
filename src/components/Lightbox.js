@@ -1,20 +1,22 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { ImCross } from 'react-icons/im'
+import { BsChevronCompactRight, BsChevronCompactLeft } from 'react-icons/bs'
 import '../styles/Lightbox.scss'
 
 const Lightbox = ({ Images }) => {
     let [showLightbox, setLightbox] = useState(false)
-    let [selectedImage, setSelectedImage] = useState(null)
+    let [selectedImageIndex, setSelectedImageIndex] = useState(null)
     return (
         <>
             <div className="galleryContainer">
-                {Images.map(image => (
+                {Images.map((image, index) => (
                     <div 
-                        key={image.node.childImageSharp.fluid.src} 
+                        key={image.node.childImageSharp.fluid.src}
                         className="galleryImage"
                         onClick = { () => {
                             setLightbox(true) 
-                            setSelectedImage(image)
+                            setSelectedImageIndex(index)
                         }}
                     >
                         <img src={image.node.childImageSharp.fluid.src} />
@@ -22,15 +24,36 @@ const Lightbox = ({ Images }) => {
                 ))}
             </div>
             {showLightbox && (
-                <div className="imageModal" onClick={() => setLightbox(false)}>
-                    <div className="buttonModal">
+                <div className="imageModal" >
+                    <div className="buttonModal" onClick={() => setLightbox(false)}>
                         <button>
-                            X
+                            <ImCross />
                         </button>
                     </div>
-                    <img
-                        className="image" 
-                        src={selectedImage.node.childImageSharp.fluid.src} />
+                    <div className="modalContainer">
+                        <button
+                            onClick={() => setSelectedImageIndex(selectedImageIndex - 1)}
+                            disabled={selectedImageIndex === 0}
+                        >
+                            <BsChevronCompactLeft 
+                                className="arrow_icon" 
+                            />
+                        </button>
+                        <div className="imageContainer">
+                            <img
+                                className="image" 
+                                src={Images[selectedImageIndex].node.childImageSharp.fluid.src} />
+                        </div>
+                        <button
+                            onClick={() => setSelectedImageIndex(selectedImageIndex + 1)}
+                            disabled={selectedImageIndex === (Images.length - 1)}
+                        >
+                            <BsChevronCompactRight
+                                className="arrow_icon"
+                                disabled={selectedImageIndex === 0}
+                            />
+                        </button>
+                    </div>
                 </div>
             )}
         </>

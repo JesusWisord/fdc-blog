@@ -30,13 +30,41 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .image{
-    max-height: 500px;
-    object-fit: cover;
+  .modalContainer{
+    display: flex;
+  }
+  .imageContainer{
+    width: 70vw;
+    height: 90vh;
+    margin: 0 auto;
+    .image{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
   .buttonModal{
-    width: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     border-radius: 5px;
+    color: white;
+  }
+  button{
+    background-color: transparent;
+    font-size: 24px;
+    outline: none;
+    &:disabled{
+      .arrow_icon{
+        color: rgba(255,255,255,.5);
+        cursor: not-allowed;
+      }
+    }
+  }
+  .arrow_icon{
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
   }
 }
 
@@ -48,5 +76,16 @@
     padding: 10px;
     display: flex;
     justify-content: center;
+  }
+  button{
+    background-color: transparent;
+    font-size: 24px;
+    outline: none;
+    &:disabled{
+      .arrow_icon{
+        color: rgba(255,255,255,.5);
+        cursor: not-allowed;
+      }
+    }
   }
 }
