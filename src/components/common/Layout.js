@@ -124,7 +124,7 @@ const DefaultLayoutSettingsQuery = props => (
                 }
                 Banner: file(relativePath: { eq: "Banner.png" }) {
                     childImageSharp{
-                        fluid(){
+                        fluid{
                             src
                         }
                     }
