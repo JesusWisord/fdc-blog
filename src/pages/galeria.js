@@ -27,11 +27,7 @@ const GalleryPage = props => (
                 relativeDirectory: {eq: "gallery"}}) {
                 edges{
                     node{
-                        childImageSharp{
-                            fluid{
-                            ...GatsbyImageSharpFluid
-                            }
-                        }
+                        publicURL
                     }
                 }
             }

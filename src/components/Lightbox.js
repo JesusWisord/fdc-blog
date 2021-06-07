@@ -7,19 +7,20 @@ import '../styles/Lightbox.scss'
 const Lightbox = ({ Images }) => {
     let [showLightbox, setLightbox] = useState(false)
     let [selectedImageIndex, setSelectedImageIndex] = useState(null)
+    console.log(Images)
     return (
         <>
             <div className="galleryContainer">
                 {Images.map((image, index) => (
                     <div 
-                        key={image.node.childImageSharp.fluid.src}
+                        key={image.node.publicURL}
                         className="galleryImage"
                         onClick = { () => {
                             setLightbox(true) 
                             setSelectedImageIndex(index)
                         }}
                     >
-                        <img src={image.node.childImageSharp.fluid.src} />
+                        <img src={image.node.publicURL} />
                     </div>
                 ))}
             </div>
@@ -42,7 +43,7 @@ const Lightbox = ({ Images }) => {
                         <div className="imageContainer">
                             <img
                                 className="image" 
-                                src={Images[selectedImageIndex].node.childImageSharp.fluid.src} />
+                                src={Images[selectedImageIndex].node.publicURL} />
                         </div>
                         <button
                             onClick={() => setSelectedImageIndex(selectedImageIndex + 1)}
