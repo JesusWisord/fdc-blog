@@ -7,7 +7,6 @@ import '../styles/Lightbox.scss'
 const Lightbox = ({ Images }) => {
     let [showLightbox, setLightbox] = useState(false)
     let [selectedImageIndex, setSelectedImageIndex] = useState(null)
-    console.log(Images)
     return (
         <>
             <div className="galleryContainer">
