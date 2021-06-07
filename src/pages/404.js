@@ -16,7 +16,7 @@ const NotFoundComponent = ({ data }) => {
                         <Link to="/">Noticias</Link>
                         <Link to="/acercade">¿Quiénes somos?</Link>
                         <div className="image_container">
-                            <img class="notFound_image" src={data.notFound.childImageSharp.fluid.src} />
+                            <img className="notFound_image" src={data.notFound.childImageSharp.fluid.src} />
                         </div>
                     </section>
                 </article>
@@ -37,7 +37,7 @@ const NotFoundPage = props => (
       query {
         notFound: file(relativePath: { eq: "errors/Error404.png" }) {
             childImageSharp{
-                        fluid(maxWidth: 1500){
+                        fluid{
                             src
                         }
                     }
