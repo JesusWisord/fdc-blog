@@ -55,7 +55,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </div>
                             { isHome ?
                                 <div className="site-banner">
-                                    <img src={data.Banner.childImageSharp.fluid.src} alt=""/>
+                                    <img src={data.Banner.publicURL} alt="Fuera del Clóset"/>
                                 </div> :
                                 null}
                             <nav className="site-nav">
@@ -122,12 +122,8 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                Banner: file     {
-                    childImageSharp{
-                        fluid{
-                            src
-                        }
-                    }
+                Banner: file(relativePath: { eq: "Banner.png" }) {
+                    publicURL
                 }
             }
         `}

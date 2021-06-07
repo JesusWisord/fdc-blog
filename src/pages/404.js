@@ -16,7 +16,7 @@ const NotFoundComponent = ({ data }) => {
                         <Link to="/">Noticias</Link>
                         <Link to="/acercade">¿Quiénes somos?</Link>
                         <div className="image_container">
-                            <img className="notFound_image" src={data.notFound.childImageSharp.fluid.src} />
+                            <img className="notFound_image" src={data.notFound.publicURL} />
                         </div>
                     </section>
                 </article>
@@ -36,14 +36,9 @@ const NotFoundPage = props => (
         query={graphql`
       query {
         notFound: file(relativePath: { eq: "errors/Error404.png" }) {
-            childImageSharp{
-                        fluid{
-                            src
-                        }
-                    }
-                }
+                publicURL
             }
-    `}
+      }`}
         render={data => <NotFoundComponent data={data} {...props} />}
     />
 )
