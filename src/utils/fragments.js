@@ -50,7 +50,6 @@ export const ghostPostFields = graphql`
         feature_image
         excerpt
         custom_excerpt
-        visibility
 
         # Dates formatted
         created_at_pretty: created_at(formatString: "DD MMMM, YYYY")

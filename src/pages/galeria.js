@@ -28,7 +28,7 @@ const GalleryPage = props => (
                 edges{
                     node{
                         childImageSharp{
-                            fluid(maxWidth: 2000){
+                            fluid{
                             ...GatsbyImageSharpFluid
                             }
                         }
