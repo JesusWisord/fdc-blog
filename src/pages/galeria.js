@@ -17,24 +17,4 @@ GalleryComponent.propTypes = {
     images: PropTypes.array.isRequired,
 }
 
-const GalleryPage = props => (
-    <StaticQuery
-        query={graphql`
-      query {
-        images: 
-            allFile(filter: {
-                extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
-                relativeDirectory: {eq: "gallery"}}) {
-                edges{
-                    node{
-                        publicURL
-                    }
-                }
-            }
-    }
-    `}
-        render={data => <GalleryComponent {...props} images={data.images.edges} />}
-    />
-)
-
-export default GalleryPage
+export default GalleryComponent
