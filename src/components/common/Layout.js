@@ -122,7 +122,7 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                Banner: file(relativePath: { eq: "Banner4.png" }) {
+                Banner: file(relativePath: { eq: "Banner.png" }) {
                     childImageSharp{
                         fluid(maxWidth: 1500){
                             src
