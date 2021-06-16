@@ -122,7 +122,7 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                Banner: file(relativePath: { eq: "Banner.png" }) {
+                Banner: file(relativePath: { eq: "Banner_pride.png" }) {
                     publicURL
                 }
             }

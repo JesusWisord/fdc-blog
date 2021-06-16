@@ -9,7 +9,7 @@ const GalleryComponent = ({ images }) => (
         <div className="container">
             <h1>Galería de actividades</h1>
         </div>
-        {/* <Lightbox Images={ images } /> */}
+        <Lightbox Images={ images } />
     </Layout>
 )
 
@@ -17,4 +17,24 @@ GalleryComponent.propTypes = {
     images: PropTypes.array.isRequired,
 }
 
-export default GalleryComponent
+const GalleryPage = props => (
+    <StaticQuery
+        query={graphql`
+      query {
+        images: 
+            allFile(filter: {
+                extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
+                relativeDirectory: {eq: "gallery"}}) {
+                edges{
+                    node{
+                        publicURL
+                    }
+                }
+            }
+    }
+    `}
+        render={data => <GalleryComponent {...props} images={data.images.edges} />}
+    />
+)
+
+export default GalleryPage
