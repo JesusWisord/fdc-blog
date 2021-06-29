@@ -12,5 +12,12 @@ form{
     &:hover{
       background-color: darken(white, 20);
     }
+    &:disabled{
+      background-color: lighten($color: #000000, $amount: 60%);
+      color: white;
+    }
+  }
+  .error{
+    color: red;
   }
 }

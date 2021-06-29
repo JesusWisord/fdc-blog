@@ -37,6 +37,7 @@
     "eslint-plugin-react": "^7.24.0"
   },
   "dependencies": {
+    "@formspark/use-formspark": "^0.1.32",
     "@tryghost/helpers": "^1.1.45",
     "@tryghost/helpers-gatsby": "^1.0.50",
     "babel-plugin-remove-graphql-queries": "^2.16.1",
@@ -62,6 +63,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-icons": "^3.11.0",
+    "react-reactive-form": "^1.0.32",
     "styled-components": "^5.2.0"
   }
 }
