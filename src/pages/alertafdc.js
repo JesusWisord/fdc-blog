@@ -163,7 +163,7 @@ const ContactForm = () => {
                                             <option value="">Otra</option>
                                         </select>
                                         {
-                                            touched && !IDENTITIES.includes(value.orientation) &&
+                                            touched && !IDENTITIES.includes(value.gender) &&
                                             <>
                                                 <label htmlFor="identidad_otra">Especifique</label>
                                                 <input 
