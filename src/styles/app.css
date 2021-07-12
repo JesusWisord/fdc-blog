@@ -517,6 +517,13 @@ h6 {
 /* Layout
 /* ---------------------------------------------------------- */
 
+figcaption{
+    font-size: .5em;
+    color: #797979;
+    font-weight: normal;
+    text-align: center;
+}
+
 .viewport {
     display: flex;
     flex-direction: column;
