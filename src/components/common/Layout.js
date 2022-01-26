@@ -23,6 +23,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+    const anualInform = 'https://drive.google.com/file/d/15v15LCDgliOf8MxNH-r5ynAL3eduzcIb/view?usp=sharing'
     return (
         <>
             <Helmet>
@@ -68,6 +69,13 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </div>
                                 <div className="site-nav-right">
                                     <Link className="site-nav-button" to="/acercade">Acerca De</Link>
+                                    <Link
+                                        className="site-nav-button download"
+                                        to={anualInform}
+                                        target="_blank"
+                                    >
+                                        Descarga Nuestro Informe Anual
+                                    </Link>
                                 </div>
                             </nav>
                         </div>
