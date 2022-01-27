@@ -23,7 +23,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
-    const anualInform = 'https://drive.google.com/file/d/15v15LCDgliOf8MxNH-r5ynAL3eduzcIb/view?usp=sharing'
+    const anualInform = 'https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view?usp=sharing'
     return (
         <>
             <Helmet>
