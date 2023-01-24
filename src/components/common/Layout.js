@@ -24,7 +24,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
     const anualInform = 'https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view'
-    const bandInform = 'https://drive.google.com/file/d/109n7W4EjGFGpWaFT-o13Ifr4XQSqwMXb/view'
+    const bandInform = 'https://drive.google.com/file/d/18RscdG1H1Ml5BBDWLwAbRrK2xgDw_nfI/view'
     return (
         <>
             <Helmet>
