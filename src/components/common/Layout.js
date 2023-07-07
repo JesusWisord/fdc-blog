@@ -25,6 +25,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
     const anualInform = 'https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view'
     const bandInform = 'https://drive.google.com/file/d/18RscdG1H1Ml5BBDWLwAbRrK2xgDw_nfI/view'
+    const anualInform2022 = 'https://drive.google.com/file/d/1ZHDgZ1Yaa9OI_JykihnYvwDe_6lOMKZg/view'
     return (
         <>
             <Helmet>
@@ -75,7 +76,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                         to={anualInform}
                                         target="_blank"
                                     >
-                                        Descarga Nuestro Informe Anual
+                                        Descarga Nuestro Informe Anual 2021
+                                    </Link>
+                                    <Link
+                                        className="site-nav-button download"
+                                        to={anualInform2022}
+                                        target="_blank"
+                                    >
+                                        Descarga Nuestro Informe Anual 2022
                                     </Link>
                                     <Link
                                         className="site-nav-button download"
