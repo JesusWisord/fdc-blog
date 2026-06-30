@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js static export no necesita redirects especiales
+# Netlify sirve los archivos HTML generados directamente

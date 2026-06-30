@@ -1,0 +1,28 @@
+{
+  "name": "fdc-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "migrate": "node scripts/migrate-from-ghost.js"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.383.0",
+    "next": "^16.2.6",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3"
+  }
+}
