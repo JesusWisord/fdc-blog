@@ -7,10 +7,13 @@ import Footer from '../components/Footer'
 // (sin peticiones externas en producción, mejora la velocidad)
 export const metadata = {
   title: {
-    default: 'Fuera del Clóset A. C.',
+    default: 'Inicio | Fuera del Clóset A. C.',
     template: '%s | Fuera del Clóset A. C.',
   },
   description: 'Blog colaborativo de Fuera del Clóset A. C. — Organización civil de derechos humanos LGBTTTI+ en México.',
+   icons: {
+    icon: '/images/fdc-icon.png',
+  },
   openGraph: {
     siteName: 'Fuera del Clóset A. C.',
     type: 'website',
