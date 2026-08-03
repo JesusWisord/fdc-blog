@@ -30,11 +30,8 @@ export default function Footer() {
           <div>
             <p className="footer-col-title">Secciones</p>
             <ul className="footer-links">
-              <li><Link href="/">Noticias</Link></li>
-              <li><Link href="/galeria">Galería</Link></li>
-              <li><Link href="/eventos">Eventos</Link></li>
-              <li><Link href="/alertafdc">#AlertaFDC</Link></li>
-              <li><Link href="/acercade">Acerca de</Link></li>
+              <li><Link href="/organigrama">Organigrama</Link></li>
+              <li><Link href="/equipo">Conoce al equipo</Link></li>
             </ul>
           </div>
 
@@ -66,7 +63,7 @@ export default function Footer() {
           <div className="footer-social">
             {SOCIALS.map(({ href, icon, label }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                <img src={icon} alt={label} style={{ width: 24, height: 24, objectFit: 'contain' }} />
+                <img src={icon} alt={label} style={{ width: 40, height: 40, objectFit: 'contain' }} />
               </a>
             ))}
           </div>

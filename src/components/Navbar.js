@@ -3,21 +3,16 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Heart } from 'lucide-react'
 
 const NAV_LINKS = [
-  { href: '/',          label: 'Noticias'   },
-  { href: '/galeria',   label: 'Galería'    },
-  { href: '/eventos',   label: 'Eventos'    },
-  { href: '/alertafdc', label: '#AlertaFDC' },
-  { href: '/acercade',  label: 'Acerca de'  },
-]
-
-const SOCIALS = [
-  { href: 'https://twitter.com/FueraCloset_AC', icon: '/images/x-icon.png', label: 'X (Twitter)' },
-  { href: 'https://www.facebook.com/fueradelclosetradio', icon: '/images/facebook-icon.png', label: 'Facebook' },
-  { href: 'https://www.instagram.com/fueracloset_ac', icon: '/images/instagram-icon.png', label: 'Instagram' },
-  { href: 'https://www.tiktok.com/@fueradelcloset_ac', icon: '/images/tiktok-icon.png', label: 'TikTok' },
+  { href: '/acercade',   label: 'Acerca de'   },
+  { href: '/calli',      label: 'Calli'       },
+  { href: '/materiales', label: 'Materiales'  },
+  { href: '/contactanos',label: 'Contáctanos' },
+  { href: '/galeria',    label: 'Galería'     },
+  { href: '/eventos',    label: 'Eventos'     },
+  { href: '/alertafdc',  label: '#AlertaFDC'  },
 ]
 
 export default function Navbar() {
@@ -52,23 +47,20 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Redes sociales */}
-          <div className="navbar-social">
-            {SOCIALS.map(({ href, icon, label }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                <img src={icon} alt={label} style={{ width: 35, height: 35, objectFit: 'contain' }} />
-              </a>
-            ))}
+          {/* Dona Aquí + botón hamburguesa */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', justifySelf: 'end' }}>
+            <Link href="/donar" className="navbar-donate" onClick={() => setOpen(false)}>
+              <Heart size={14} fill="currentColor" />
+              Dona Aquí
+            </Link>
+            <button
+              className="navbar-menu-btn"
+              onClick={() => setOpen(o => !o)}
+              aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
-
-          {/* Botón hamburguesa (solo móvil) */}
-          <button
-            className="navbar-menu-btn"
-            onClick={() => setOpen(o => !o)}
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
 
         </div>
       </nav>
