@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Star, ExternalLink } from 'lucide-react'
+import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
 
 export const metadata = { title: 'Calli — Centro Comunitario LGBTTTIQ+' }
 
@@ -20,12 +20,7 @@ export default function CalliPage() {
           <img src="/images/calli-logo.png" alt="CALLI Centro Comunitario LGBTTTIQ+" style={{ height: 64 }} />
         </div>
 
-        <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '2rem', color: 'var(--color-text-muted)' }}>
-          <Star size={16} style={{ color: 'var(--color-accent)' }} fill="var(--color-accent)" />
-          <span><strong style={{ color: 'var(--color-text)' }}>5.0</strong> · 32 opiniones en Google</span>
-        </div>
+        <h1 style={{ marginBottom: '1.5rem', color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
 
         <p>
           CALLI es el Centro Comunitario LGBTTTIQ+ impulsado por Fuera del Clóset A. C.,
