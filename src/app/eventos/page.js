@@ -1,5 +1,6 @@
 import { getAllEvents } from '../../lib/posts'
 import { MapPin, ExternalLink, Calendar } from 'lucide-react'
+import CalliCarousel from '../../components/CalliCarousel'
 
 export const metadata = { title: 'Eventos' }
 
@@ -75,16 +76,13 @@ export default function EventsPage() {
   return (
     <main className="container">
       <div style={{ padding: '3rem 0' }}>
-        <div className="section-header">
-          <h1 className="section-title">Próximos Eventos</h1>
-        </div>
+        <CalliCarousel />
 
-        {upcoming.length === 0
-          ? <p style={{ color: 'var(--color-text-muted)', marginBottom: '3rem' }}>No hay eventos próximos por el momento.</p>
-          : <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
-              {upcoming.map(e => <EventCard key={e.slug} event={e} />)}
-            </div>
-        }
+        {upcoming.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+            {upcoming.map(e => <EventCard key={e.slug} event={e} />)}
+          </div>
+        )}
 
         {past.length > 0 && (
           <>
@@ -95,13 +93,6 @@ export default function EventsPage() {
               {past.map(e => <EventCard key={e.slug} event={e} />)}
             </div>
           </>
-        )}
-
-        {events.length === 0 && (
-          <div className="loading" style={{ flexDirection: 'column', gap: '1rem', height: '60vh' }}>
-            <span style={{ fontSize: '3rem' }}>📅</span>
-            <p>No hay eventos aún.</p>
-          </div>
         )}
       </div>
     </main>

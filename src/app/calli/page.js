@@ -16,17 +16,42 @@ export default function CalliPage() {
   return (
     <main className="container">
       <div className="about-page">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.5rem' }}>
-          <img src="/images/calli-logo.png" alt="CALLI Centro Comunitario LGBTTTIQ+" style={{ height: 64 }} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.5rem', flexWrap: 'wrap', textAlign: 'center' }}>
+          <img src="/images/calli-logo.png" alt="CALLI Centro Comunitario LGBTTTIQ+" style={{ height: 72, width: 'auto', flexShrink: 0 }} />
+          <h1 style={{ margin: 0, color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
         </div>
 
-        <h1 style={{ marginBottom: '1.5rem', color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1rem',
+            marginBottom: '2rem',
+          }}
+        >
+          <img
+            src="/images/calli-fachada.jpg"
+            alt="Fachada de Calli, Centro Comunitario LGBTTTIQ+"
+            style={{ width: '100%', height: 320, objectFit: 'cover', borderRadius: 'var(--radius)' }}
+          />
+          <img
+            src="/images/calli-mural.jpg"
+            alt="Mural de Calli, Centro Comunitario LGBTTTIQ+"
+            style={{ width: '100%', height: 320, objectFit: 'cover', borderRadius: 'var(--radius)' }}
+          />
+        </div>
 
         <p>
           CALLI es el Centro Comunitario LGBTTTIQ+ impulsado por Fuera del Clóset A. C.,
           un espacio seguro en Toluca de Lerdo que ofrece acompañamiento, información y
           actividades para la comunidad LGBTTTI+ y sus aliades.
         </p>
+
+        <img
+          src="/images/calli-equipo.png"
+          alt="Equipo de Calli, Centro Comunitario LGBTTTIQ+"
+          style={{ width: '100%', height: 340, objectFit: 'cover', borderRadius: 'var(--radius)', marginTop: '0.5rem' }}
+        />
 
         <div className="reports-grid" style={{ marginTop: '2.5rem' }}>
           <div className="report-card">

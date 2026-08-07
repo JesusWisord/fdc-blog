@@ -1,11 +1,7 @@
-import { getAllPosts } from '../lib/posts'
 import Link from 'next/link'
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
-import PaginatedHome from '../components/PaginatedHome'
 
 export default function HomePage() {
-  const posts = getAllPosts()
-
   return (
     <main>
 <div className="home-hero">
@@ -28,8 +24,31 @@ export default function HomePage() {
         <div className="about-page" style={{ maxWidth: '100%', padding: '3rem 0', textAlign: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-accent)' }}>
-              Calli — Centro Comunitario LGBTTTIQ+
+              Calli — Centro Comunitario LGBTTTIQANB+
             </h2>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gap: '1rem',
+                width: '100%',
+                maxWidth: 640,
+                margin: '0.5rem 0',
+              }}
+            >
+              <img
+                src="/images/calli-evento.jpg"
+                alt="Evento comunitario en Calli"
+                style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: 'var(--radius)' }}
+              />
+              <img
+                src="/images/calli-jornada.jpg"
+                alt="Jornada comunitaria en Calli"
+                style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: 'var(--radius)' }}
+              />
+            </div>
+
             <Link href="/calli" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-accent)' }}>
               Ver más <ExternalLink size={13} />
             </Link>
@@ -61,8 +80,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        <PaginatedHome posts={posts} />
       </div>
     </main>
   )
