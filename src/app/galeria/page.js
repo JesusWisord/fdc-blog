@@ -16,7 +16,7 @@ export default function GalleryPage() {
         {albums.length === 0 ? (
           <div className="loading" style={{ flexDirection: 'column', gap: '1rem', height: '60vh' }}>
             <span style={{ fontSize: '3rem' }}>🖼️</span>
-            <p>No hay imágenes aún. Agrégalas desde el panel de administración.</p>
+            <p>Próximamente encontrarás aquí materiales y recursos de Fuera del Clóset A. C.</p>
           </div>
         ) : (
           <GalleryClient albums={albums} />
