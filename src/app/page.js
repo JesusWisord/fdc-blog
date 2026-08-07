@@ -34,28 +34,6 @@ export default function HomePage() {
                 style={{ width: '100%', maxWidth: 820, height: 380, objectFit: 'cover', borderRadius: 'var(--radius)', margin: '0.5rem 0' }}
               />
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '1rem',
-                  width: '100%',
-                  maxWidth: 820,
-                  margin: '0 0 0.5rem',
-                }}
-              >
-                <img
-                  src="/images/calli-evento.jpg"
-                  alt="Evento comunitario en Calli"
-                  style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 'var(--radius)' }}
-                />
-                <img
-                  src="/images/calli-jornada.jpg"
-                  alt="Jornada comunitaria en Calli"
-                  style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 'var(--radius)' }}
-                />
-              </div>
-
               <Link href="/calli" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-accent)' }}>
                 Ver más <ExternalLink size={13} />
               </Link>

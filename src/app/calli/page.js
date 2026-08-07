@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
+import CalliSpaceSlider from '../../components/CalliSpaceSlider'
 
 export const metadata = { title: 'Calli — Centro Comunitario LGBTTTIQ+' }
 
@@ -21,12 +22,18 @@ export default function CalliPage() {
           <h1 style={{ margin: 0, color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
         </div>
 
+        <p>
+          CALLI es el Centro Comunitario LGBTTTIQANB+ impulsado por Fuera del Clóset A. C.,
+          un espacio seguro en Toluca de Lerdo que ofrece acompañamiento, información y
+          actividades para la comunidad LGBTTTIQANB+ y sus aliades.
+        </p>
+
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1rem',
-            marginBottom: '2rem',
+            margin: '1.5rem 0 2rem',
           }}
         >
           <img
@@ -41,17 +48,19 @@ export default function CalliPage() {
           />
         </div>
 
-        <p>
-          CALLI es el Centro Comunitario LGBTTTIQ+ impulsado por Fuera del Clóset A. C.,
-          un espacio seguro en Toluca de Lerdo que ofrece acompañamiento, información y
-          actividades para la comunidad LGBTTTI+ y sus aliades.
-        </p>
-
         <img
           src="/images/calli-equipo.png"
           alt="Equipo de Calli, Centro Comunitario LGBTTTIQ+"
           style={{ width: '100%', height: 340, objectFit: 'cover', borderRadius: 'var(--radius)', marginTop: '0.5rem' }}
         />
+
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700,
+          color: 'var(--color-accent)', textAlign: 'center', marginTop: '3rem', marginBottom: '1.5rem',
+        }}>
+          ¡Conoce tu espacio!
+        </h2>
+        <CalliSpaceSlider />
 
         <div className="reports-grid" style={{ marginTop: '2.5rem' }}>
           <div className="report-card">
