@@ -1,82 +1,66 @@
-# 🏳️‍🌈 Fuera del Clóset A. C. — Blog (Next.js)
+# Fuera del Clóset AC — Sitio web y blog
 
-Sitio web y blog oficial de Fuera del Clóset A. C., migrado de Gatsby + Ghost a **Next.js + Markdown** como parte de un proyecto de práctica profesional. Este documento describe la estructura del proyecto, cómo ejecutarlo, cómo publicar contenido, y las consideraciones de mantenimiento y continuidad necesarias para que el sitio no dependa de una sola persona.
+Documentación técnica y de operación del sitio de Fuera del Clóset AC, migrado de Gatsby con Ghost a Next.js con contenido en Markdown en el marco de una práctica profesional.
 
-> 📌 Para quien dé seguimiento al proyecto: revisar primero las secciones [¿Qué hacer si algo se rompe?](#-qué-hacer-si-algo-se-rompe) y [Continuidad del proyecto](#-continuidad-del-proyecto).
+Este documento tiene dos propósitos: permitir que cualquier persona pueda instalar, ejecutar y publicar contenido en el sitio, y dejar constancia de las decisiones técnicas y los problemas resueltos durante el desarrollo, de manera que el proyecto no dependa de quien lo construyó.
 
----
+Quien reciba el proyecto para darle seguimiento debe leer primero las secciones "Resolución de problemas" y "Continuidad del proyecto".
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 ```
 fdc-next/
 ├── content/
-│   └── posts/        ← Noticias del sitio (.md), un archivo por publicación
+│   └── posts/         Noticias del sitio en formato .md, un archivo por publicación
 ├── public/
-│   ├── admin/         ← Panel de administración (Decap CMS, ver sección correspondiente)
-│   └── images/        ← Logos e íconos del sitio
+│   ├── admin/         Panel de administración (Decap CMS)
+│   └── images/        Logos e íconos del sitio
 ├── src/
-│   ├── app/            ← Páginas del sitio (Next.js App Router)
-│   ├── components/    ← Navbar, Footer, PostCard, etc.
-│   ├── lib/             ← posts.js (lectura de archivos Markdown)
-│   └── styles/         ← globals.css (estilos visuales)
+│   ├── app/           Páginas del sitio (Next.js App Router)
+│   ├── components/    Navbar, Footer, PostCard y demás componentes
+│   ├── lib/           posts.js, encargado de la lectura de los archivos Markdown
+│   └── styles/        globals.css, estilos generales del sitio
 ├── scripts/
 │   └── migrate-from-ghost.js
 ├── next.config.js
 └── netlify.toml
 ```
 
----
+## Instalación y ejecución local
 
-## 🚀 Instalación y ejecución local
+**Node.js.** Descargue la versión LTS desde https://nodejs.org e instálela con la configuración predeterminada. Para confirmar que quedó instalada correctamente, ejecute `node --version` en la terminal; debe aparecer un número de versión.
 
-### 1. Instalar Node.js
-Descargar la versión **LTS** desde https://nodejs.org e instalar con la configuración por defecto.
+**Git.** Si el equipo no lo tiene instalado, descárguelo desde https://git-scm.com/download/win con las opciones predeterminadas. En Windows conviene reiniciar el equipo después de la instalación, ya que de lo contrario la terminal puede no reconocer el comando `git`.
 
-Verificar la instalación:
-```bash
-node --version
+**Dependencias.** Abra una terminal dentro de la carpeta del proyecto y ejecute:
+
 ```
-
-### 2. Instalar Git (si no está instalado)
-Descargar desde https://git-scm.com/download/win e instalar con las opciones por defecto. Tras la instalación, reiniciar el equipo antes de usar Git desde la terminal.
-
-### 3. Instalar dependencias del proyecto
-Desde la terminal, dentro de la carpeta del proyecto:
-```bash
 npm install
 ```
 
-### 4. Ejecutar el sitio localmente
-```bash
+**Ejecución.** Una vez instaladas las dependencias:
+
+```
 npm run dev
 ```
-El sitio queda disponible en **http://localhost:3000**
 
----
+El sitio queda disponible en http://localhost:3000 y se actualiza automáticamente conforme se modifican los archivos.
 
-## ✍️ Publicación de contenido
+## Publicación de contenidos
 
-Existen dos formas de publicar noticias en el sitio.
+El sitio admite dos formas de publicar noticias. La primera está pensada para personal sin formación técnica y la segunda para quien tenga acceso al repositorio.
 
-### Opción A — Panel visual (Decap CMS), recomendada para personal sin conocimientos técnicos
+### Panel visual (Decap CMS)
 
-Una vez que el sitio esté desplegado en Netlify y el panel esté activado (ver sección [Pendiente: activar Decap CMS](#-pendiente-activar-decap-cms)), cualquier persona autorizada podrá acceder a:
+Es la vía recomendada. Una vez que el sitio esté desplegado en Netlify y el panel activado, según se describe en la sección "Activación pendiente de Decap CMS", las personas autorizadas podrán entrar a `https://[dominio-del-sitio]/admin`, iniciar sesión con su cuenta y redactar, editar o publicar noticias desde un editor visual, sin escribir código.
 
-```
-https://[dominio-del-sitio]/admin
-```
+Al día de hoy el panel está incluido y configurado en el proyecto, pero su activación sigue pendiente porque requiere que el sitio esté previamente desplegado en Netlify.
 
-Iniciar sesión con su cuenta y crear, editar o publicar noticias desde un editor visual, sin necesidad de escribir código.
+### Edición directa de archivos Markdown
 
-**Estado actual:** el panel está preparado en el proyecto pero su activación está pendiente; requiere que el sitio ya esté desplegado en Netlify.
+Mientras el panel no esté activo, el contenido se agrega de forma manual. Cree un archivo nuevo dentro de `content/posts/` con un nombre corto, en minúsculas, sin espacios y separado por guiones, por ejemplo `marcha-del-orgullo-2026.md`.
 
-### Opción B — Edición directa de archivos Markdown
-
-Mientras Decap CMS no esté activo, el contenido puede agregarse manualmente:
-
-1. Crear un archivo nuevo en `content/posts/` con el nombre `nombre-corto-de-la-noticia.md` (en minúsculas, sin espacios, usando guiones).
-2. Completar el siguiente formato:
+El archivo debe comenzar con un bloque de datos entre tres guiones y continuar con el cuerpo del artículo:
 
 ```markdown
 ---
@@ -97,70 +81,55 @@ Texto adicional. Se admite **negritas** y *cursivas*.
 ![Descripción de la imagen](https://url-imagen.jpg)
 ```
 
-**Categorías disponibles** (cada una con un color asignado en el sitio):
-- `noticias` — Noticias generales
-- `incidencia` — Incidencia política
-- `alertafdc` — Casos de discriminación o violencia
-- `comunidad` — Activismo y eventos
-- `cultura` — Arte y cultura LGBTTTI+
+El campo `category` acepta cinco valores, cada uno asociado a un color distinto en el sitio: `noticias` para noticias generales, `incidencia` para incidencia política, `alertafdc` para casos de discriminación o violencia, `comunidad` para activismo y eventos, y `cultura` para arte y cultura LGBTTTI+.
 
-3. Guardar el archivo y subir los cambios al repositorio (`git add`, `git commit`, `git push`). Si el repositorio está conectado a Netlify, el sitio se actualiza automáticamente en pocos minutos.
+Guarde el archivo y suba los cambios al repositorio con `git add`, `git commit` y `git push`. Si el repositorio está conectado a Netlify, el sitio se reconstruye y se actualiza solo en pocos minutos.
 
----
+## Logos e imágenes del sitio
 
-## 🎨 Logos e imágenes del sitio
+Todas las imágenes fijas del sitio están en `public/images/`. El logo completo de Fuera del Clóset, con texto, corresponde a `fdc-logo.png`, y el de CALLI a `calli-logo.png`; ambos se usan en el encabezado principal de la página de inicio. Las versiones sin texto, `fdc-icon.png` y `calli-icon.png`, se usan en la barra de navegación. Los íconos de redes sociales que aparecen en esa misma barra son `x-icon.png`, `facebook-icon.png`, `instagram-icon.png` y `tiktok-icon.png`.
 
-Los logos e íconos se encuentran en `public/images/`:
+Para reemplazar cualquiera de ellos basta con sustituir el archivo en esa carpeta conservando exactamente el mismo nombre. El cambio se refleja sin necesidad de modificar el código.
 
-| Archivo | Uso |
-|---|---|
-| `fdc-logo.png` | Logo completo de Fuera del Clóset (con texto), usado en el Hero |
-| `calli-logo.png` | Logo completo de CALLI (con texto), usado en el Hero |
-| `fdc-icon.png` | Ícono de FDC sin texto, usado en el Navbar |
-| `calli-icon.png` | Ícono de CALLI sin texto, usado en el Navbar |
-| `x-icon.png`, `facebook-icon.png`, `instagram-icon.png`, `tiktok-icon.png` | Íconos de redes sociales en el Navbar |
+## Resolución de problemas
 
-Para reemplazar cualquier logo, basta con sustituir el archivo en `public/images/` conservando exactamente el mismo nombre; el cambio se refleja automáticamente sin modificar código.
+Esta sección reúne los errores que aparecieron durante el desarrollo y la forma en que se resolvieron, con el fin de facilitar el diagnóstico de problemas parecidos más adelante.
 
----
+### El sitio no carga o aparece en blanco al ejecutar npm run dev
 
-## 🆘 ¿Qué hacer si algo se rompe?
+Lo primero es revisar la terminal, donde el mensaje de error suele indicar el archivo y la línea exacta donde ocurrió el problema.
 
-Esta sección documenta los errores encontrados durante el desarrollo y su resolución, para facilitar el diagnóstico de problemas similares en el futuro.
+Si el mensaje dice `params is a Promise and must be unwrapped with await`, el error está en algún archivo `page.js` dentro de una carpeta con nombre entre corchetes, como `[slug]`. Se corrige escribiendo `const { slug } = await params` en lugar de acceder directamente a `params.slug`. Es un requisito introducido por Next.js 16.
 
-### El sitio no carga o muestra pantalla en blanco al ejecutar `npm run dev`
-1. Revisar la terminal: el mensaje de error suele indicar el archivo y la línea exactos.
-2. Errores conocidos y su solución:
-   - **`params is a Promise and must be unwrapped with await`**: ocurre en archivos `page.js` dentro de carpetas con `[slug]`. Solución: usar `const { slug } = await params` en lugar de `params.slug` directamente. Es un requisito de Next.js 16.
-   - **`Page is missing exported function "generateStaticParams()"`**: ocurre en páginas dinámicas (como `/noticias/[slug]`) debido a que `next.config.js` tiene configurado `output: 'export'`. Solución: agregar una función `generateStaticParams()` en el `page.js` correspondiente que devuelva la lista completa de slugs existentes. Puede tomarse como referencia `src/app/noticias/[slug]/page.js`, donde ya está resuelto.
-3. Si una imagen no se muestra (ícono roto): verificar que el archivo exista exactamente en `public/images/` con el nombre que el código solicita (las mayúsculas y minúsculas son significativas). Tras reemplazar imágenes, realizar una recarga forzada del navegador (`Ctrl+Shift+R`).
+Si el mensaje dice `Page is missing exported function "generateStaticParams()"`, el error se debe a que `next.config.js` está configurado con `output: 'export'`, lo que obliga a que toda página dinámica declare de antemano las rutas que va a generar. Se corrige agregando una función `generateStaticParams()` en el `page.js` correspondiente que devuelva la lista completa de slugs existentes. El archivo `src/app/noticias/[slug]/page.js` ya tiene esta función resuelta y puede tomarse como referencia.
 
-### Instrucciones de ejecución
-Ver la sección [Instalación y ejecución local](#-instalación-y-ejecución-local).
+### Una imagen aparece rota
 
-### Diagnóstico de errores no documentados
-Se recomienda copiar el mensaje de error completo de la terminal (o una captura de pantalla) junto con el archivo de código relacionado, y consultarlo con una herramienta de asistencia técnica o desarrollo. La mayoría de los errores encontrados durante este proyecto se resolvieron mediante este método.
+Verifique que el archivo exista en `public/images/` con exactamente el mismo nombre que solicita el código, tomando en cuenta que las mayúsculas y minúsculas sí se distinguen. Después de reemplazar una imagen conviene forzar la recarga del navegador con Ctrl+Shift+R, ya que de lo contrario puede seguir mostrando la versión guardada en caché.
 
----
+### Errores no documentados aquí
 
-## 🔄 Continuidad del proyecto
+Copie el mensaje de error completo de la terminal, o tome una captura de pantalla, e inclúyalo junto con el archivo de código relacionado al consultar una herramienta de asistencia técnica o a una persona con conocimientos de desarrollo. La mayoría de los errores encontrados durante este proyecto se resolvieron de esta manera.
 
-Este proyecto fue desarrollado en el marco de una práctica profesional con fecha de término en noviembre de 2026. Para garantizar la continuidad del sitio sin depender de una sola persona, se recomienda a la organización:
+## Continuidad del proyecto
 
-1. **Contar con una cuenta de GitHub institucional**, distinta de la cuenta personal utilizada durante el desarrollo. El proyecto se subió como una rama (`migracion-fdc-nextjs`) dentro del repositorio existente de la organización, administrado por un colaborador (Jesús/Chuy), para su revisión e integración.
-2. **Contar con acceso a Netlify** mediante una cuenta institucional, que permita administrar o reiniciar el despliegue del sitio en caso de fallas.
-3. **Designar a una persona responsable de publicación de contenido**, idealmente sin necesidad de conocimientos técnicos, una vez que el panel Decap CMS esté activo.
-4. **Conservar este documento actualizado**, junto con cualquier credencial relevante en un repositorio seguro (no en el código público), para quien dé continuidad al proyecto.
+El proyecto se desarrolló en el marco de una práctica profesional con fecha de término en noviembre de 2026. Para que el sitio siga funcionando sin depender de una sola persona, se recomienda a la organización lo siguiente.
 
----
+Abrir una cuenta de GitHub institucional, distinta de la cuenta personal utilizada durante el desarrollo. El proyecto se subió como una rama llamada `migracion-fdc-nextjs` dentro del repositorio existente de la organización, administrado por un colaborador (Jesús), para su revisión e integración.
 
-## 📤 Despliegue en internet (Netlify)
+Contar con acceso a Netlify mediante una cuenta institucional, lo que permitirá administrar el sitio o reiniciar el despliegue en caso de falla.
 
-### 1. Crear cuenta en GitHub (idealmente institucional)
-https://github.com → Sign up (gratuito)
+Designar a una persona responsable de la publicación de contenido. Una vez activo el panel de Decap CMS, esta tarea no requiere conocimientos técnicos.
 
-### 2. Subir el proyecto
-```bash
+Mantener este documento actualizado y resguardar las credenciales relevantes en un espacio seguro, nunca dentro del código publicado, para quien dé continuidad al proyecto.
+
+## Despliegue en internet
+
+El despliegue se hace con Netlify a partir del repositorio de GitHub.
+
+Si el proyecto aún no está en GitHub, cree la cuenta en https://github.com, de preferencia institucional, y suba el proyecto desde la terminal:
+
+```
 git init
 git add .
 git commit -m "Primer commit"
@@ -169,58 +138,34 @@ git branch -M main
 git push -u origin main
 ```
 
-### 3. Conectar con Netlify
-1. Ingresar a https://app.netlify.com → "Add new site" → "Import from Git"
-2. Conectar la cuenta de GitHub y seleccionar el repositorio
-3. Netlify detecta automáticamente el archivo `netlify.toml`
-4. Hacer clic en **Deploy site**
+Después ingrese a https://app.netlify.com, elija "Add new site" y luego "Import from Git", conecte la cuenta de GitHub y seleccione el repositorio. Netlify lee automáticamente el archivo `netlify.toml`, que ya contiene la configuración de compilación, así que sólo resta confirmar el despliegue. A partir de ese momento cada cambio subido al repositorio actualiza el sitio publicado.
 
----
+## Activación pendiente de Decap CMS
 
-## 🔧 Pendiente: activación de Decap CMS
+El proyecto ya incluye Decap CMS como panel de administración visual, pero su activación quedó pendiente porque depende de que el sitio esté desplegado. Los pasos son los siguientes.
 
-El proyecto está preparado para utilizar Decap CMS como panel de administración visual, pero su activación se encuentra pendiente. Pasos requeridos:
+Con el sitio ya publicado en Netlify, entre a la configuración del sitio y habilite la sección de Identidad. Dentro de Identidad, configure el registro como "Solo invitación", de modo que nadie externo pueda crear una cuenta, y habilite Git Gateway en el apartado de Servicios. Enseguida invite desde ahí mismo a las personas que publicarán contenido.
 
-1. El sitio debe estar previamente desplegado en Netlify.
-2. En Netlify → Site settings → **Identity** → habilitar Identity.
-3. Identity → Registration → configurar como **Invite only**.
-4. Identity → Services → habilitar **Git Gateway**.
-5. Invitar a las personas que publicarán contenido desde Identity → Invite users.
-6. Verificar que `public/admin/config.yml` tenga la configuración correcta del repositorio.
+Antes de dar por concluida la activación, revise que el archivo `public/admin/config.yml` apunte al repositorio correcto. Hecho lo anterior, el panel queda disponible en `https://[dominio-del-sitio]/admin`.
 
-Una vez activado, el panel estará disponible en: `https://[dominio-del-sitio]/admin`
+## Sobre el contenido del sitio anterior
 
----
+Parte del contenido publicado en el sitio anterior, construido con Gatsby y Ghost, no pudo recuperarse debido a la pérdida de información en la instancia de Ghost alojada en Heroku. Por esa razón se decidió que el contenido del nuevo sitio se almacene como archivos Markdown dentro del repositorio de GitHub, lo que elimina la dependencia de un servicio externo de pago para conservar las publicaciones.
 
-## 📦 Sobre el contenido del sitio anterior
+Si en algún momento apareciera contenido adicional del sitio anterior susceptible de recuperarse, puede utilizarse el script incluido en el proyecto:
 
-Parte del contenido del sitio previo (Gatsby + Ghost) no pudo recuperarse debido a la pérdida de información en el servicio de Ghost alojado en Heroku. Por este motivo, se determinó que el contenido del nuevo sitio se almacene como archivos Markdown dentro del repositorio de GitHub, eliminando la dependencia de un servicio externo de pago para la conservación del contenido.
-
-En caso de que aparezca contenido adicional del sitio anterior por recuperar, el siguiente script puede utilizarse:
-```bash
+```
 GHOST_URL=https://fdc-blog.herokuapp.com \
 GHOST_CONTENT_KEY=TU_KEY_AQUI \
 node scripts/migrate-from-ghost.js
 ```
 
----
+## Costo de operación
 
-## 💰 Costo total
+El sitio no genera ningún costo. El alojamiento web en Netlify, el alojamiento del código en GitHub y el panel de administración Decap CMS operan dentro de sus planes gratuitos, suficientes para el volumen de contenido y de visitas del sitio.
 
-| Servicio | Costo |
-|----------|-------|
-| Netlify (hosting) | Gratuito |
-| GitHub (código) | Gratuito |
-| Decap CMS (panel) | Gratuito |
-| **Total** | **Gratuito** |
+## Resumen de la migración
 
----
+El sitio anterior estaba construido con Gatsby 2, una versión hoy obsoleta, y dependía de una instancia de Ghost alojada en Heroku bajo un servicio de pago, en la que se perdió parte del contenido. El despliegue se hacía de forma manual y el mantenimiento recaía en una sola persona.
 
-## 🆚 Resumen de la migración (Gatsby/Ghost → Next.js)
-
-| | Antes | Ahora |
-|---|---|---|
-| Framework | Gatsby 2 (obsoleto) | Next.js 16 (vigente) |
-| CMS | Ghost en Heroku (de pago; se perdió contenido) | Markdown en GitHub + Decap CMS (gratuito, sin riesgo de pérdida de datos) |
-| Despliegue | Manual | Automático con cada cambio subido a GitHub |
-| Dependencia de una sola persona | Alta | Baja (contenido en texto plano; errores documentados en este archivo) |
+El sitio actual está construido con Next.js 16, con soporte vigente. El contenido vive como archivos de texto plano en el repositorio de GitHub y se administra mediante Decap CMS, sin costo y sin riesgo de pérdida por la caída de un servicio externo. El despliegue ocurre automáticamente con cada cambio subido al repositorio, y los errores encontrados durante el desarrollo quedaron documentados en este mismo archivo, de modo que otra persona pueda retomar el proyecto.
