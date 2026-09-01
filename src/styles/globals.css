@@ -14,7 +14,7 @@
   --color-accent: #5b1a8c;
   --color-accent-dim: rgba(91, 26, 140, 0.08);
   --color-accent-hover: #7a23b8;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Poppins', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --container: 1200px;
   --gap: 1.5rem;
@@ -85,8 +85,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 .navbar-nav a {
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text-muted);

@@ -18,8 +18,8 @@ export default function CalliPage() {
     <main className="container">
       <div className="about-page">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.5rem', flexWrap: 'wrap', textAlign: 'center' }}>
-          <img src="/images/calli-logo.png" alt="CALLI Centro Comunitario LGBTTTIQ+" style={{ height: 72, width: 'auto', flexShrink: 0 }} />
-          <h1 style={{ margin: 0, color: 'var(--color-accent)' }}>Calli &mdash; Centro Comunitario LGBTTTIQANB+</h1>
+          <img src="/images/calli-logo.png" alt="CALLI Centro Comunitario LGBTTTIQ+" style={{ height: 180, width: 'auto', flexShrink: 0 }} />
+          <h1 style={{ margin: 0, color: 'var(--color-accent)' }}>CALLI<br />Centro Comunitario LGBTTTIQANB+</h1>
         </div>
 
         <p>

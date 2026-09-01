@@ -1,12 +1,6 @@
-import { Download, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
 export const metadata = { title: 'Acerca de' }
-
-const REPORTS = [
-  { title: 'Informe Anual 2021', url: 'https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view' },
-  { title: 'Informe Anual 2022', url: 'https://drive.google.com/file/d/1ZHDgZ1Yaa9OI_JykihnYvwDe_6lOMKZg/view' },
-  { title: 'Informe Bandos Municipales', url: 'https://drive.google.com/file/d/18RscdG1H1Ml5BBDWLwAbRrK2xgDw_nfI/view' },
-]
 
 const SOCIAL = [
   { label: 'Twitter / X', url: 'https://twitter.com/FueraCloset_AC', icon: '/images/x-icon.png' },
@@ -38,20 +32,6 @@ export default function AboutPage() {
                 borderRadius: 'var(--radius)', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
               <img src={icon} alt={label} style={{ width: 20, height: 20, objectFit: 'contain' }} />
               {label} <ExternalLink size={13} />
-            </a>
-          ))}
-        </div>
-
-        {/* Informes */}
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, marginTop: '3rem', marginBottom: '1.25rem' }}>
-          Informes y Documentos
-        </h2>
-        <div className="reports-grid">
-          {REPORTS.map(({ title, url }) => (
-            <a key={title} href={url} target="_blank" rel="noreferrer" className="report-card">
-              <Download size={20} style={{ color: 'var(--color-accent)' }} />
-              <span className="report-card-title">{title}</span>
-              <span className="report-card-btn">Descargar <ExternalLink size={11} /></span>
             </a>
           ))}
         </div>

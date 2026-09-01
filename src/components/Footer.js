@@ -48,11 +48,6 @@ export default function Footer() {
                   Informe Anual 2022
                 </a>
               </li>
-              <li>
-                <a href="https://drive.google.com/file/d/18RscdG1H1Ml5BBDWLwAbRrK2xgDw_nfI/view" target="_blank" rel="noreferrer">
-                  Informe Bandos Municipales
-                </a>
-              </li>
             </ul>
           </div>
 
