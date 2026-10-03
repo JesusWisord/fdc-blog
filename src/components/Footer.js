@@ -39,13 +39,18 @@ export default function Footer() {
             <p className="footer-col-title">Informes</p>
             <ul className="footer-links">
               <li>
-                <a href="https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view" target="_blank" rel="noreferrer">
+                <a href="/informes/informe-anual-2021.pdf" target="_blank" rel="noreferrer">
                   Informe Anual 2021
                 </a>
               </li>
               <li>
-                <a href="https://drive.google.com/file/d/1ZHDgZ1Yaa9OI_JykihnYvwDe_6lOMKZg/view" target="_blank" rel="noreferrer">
+                <a href="/informes/informe-anual-2022.pdf" target="_blank" rel="noreferrer">
                   Informe Anual 2022
+                </a>
+              </li>
+              <li>
+                <a href="/informes/informe-anual-2025.pdf" target="_blank" rel="noreferrer">
+                  Informe Anual 2025
                 </a>
               </li>
             </ul>

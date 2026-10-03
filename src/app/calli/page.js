@@ -22,10 +22,13 @@ export default function CalliPage() {
           <h1 style={{ margin: 0, color: 'var(--color-accent)' }}>CALLI<br />Centro Comunitario LGBTTTIQANB+</h1>
         </div>
 
-        <p>
-          CALLI es el Centro Comunitario LGBTTTIQANB+ impulsado por Fuera del Clóset A. C.,
-          un espacio seguro en Toluca de Lerdo que ofrece acompañamiento, información y
-          actividades para la comunidad LGBTTTIQANB+ y sus aliades.
+        <p style={{ textAlign: 'justify' }}>
+          Calli es el primer centro comunitario para atención a personas LGBTTTIQANB+ del Valle
+          de Toluca, impulsado por Fuera del Clóset A.C., un espacio seguro en Toluca de Lerdo que
+          ofrece acompañamiento, información y actividades para la comunidad LGBTTTIQANB+ y sus aliades.
+          Ofrecemos los servicios de: Acompañamiento psicológico; Asesoría de salud sexual y
+          realización de pruebas rápidas de ITS; Asesoría jurídica; Difusión y cultura; y
+          Capacitación y sensibilización.
         </p>
 
         <div
@@ -51,6 +54,12 @@ export default function CalliPage() {
         <img
           src="/images/calli-equipo.png"
           alt="Equipo de Calli, Centro Comunitario LGBTTTIQ+"
+          style={{ width: '100%', height: 340, objectFit: 'cover', borderRadius: 'var(--radius)', marginTop: '0.5rem' }}
+        />
+
+        <img
+          src="/images/calli-todes.png"
+          alt="Equipo y comunidad de Calli frente al mural"
           style={{ width: '100%', height: 340, objectFit: 'cover', borderRadius: 'var(--radius)', marginTop: '0.5rem' }}
         />
 

@@ -9,10 +9,9 @@ const NAV_LINKS = [
   { href: '/acercade',   label: 'Acerca de'   },
   { href: '/calli',      label: 'Calli'       },
   { href: '/materiales', label: 'Materiales'  },
-  { href: '/contactanos',label: 'Contáctanos' },
   { href: '/galeria',    label: 'Galería'     },
   { href: '/eventos',    label: 'Eventos'     },
-  { href: '/alertafdc',  label: '#AlertaFDC'  },
+  { href: '/contactanos',label: 'Contáctanos' },
 ]
 
 export default function Navbar() {

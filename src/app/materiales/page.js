@@ -4,8 +4,9 @@ export const metadata = { title: 'Materiales' }
 const FALLBACK_IMAGE = '/images/fdc-logo.png'
 
 const REPORTS = [
-  { title: 'Informe Anual 2021', date: '2021', url: 'https://drive.google.com/file/d/1xhJAbDHjSgcC9S_CBOXRJD3E7bZqLo42/view', image: '/images/informe-anual-2021-cover.jpg' },
-  { title: 'Informe Anual 2022', date: '2022', url: 'https://drive.google.com/file/d/1ZHDgZ1Yaa9OI_JykihnYvwDe_6lOMKZg/view', image: '/images/informe-anual-2022-cover.jpg' },
+  { title: 'Informe Anual 2021', date: '2021', url: '/informes/informe-anual-2021.pdf', image: '/images/informe-anual-2021-cover.jpg' },
+  { title: 'Informe Anual 2022', date: '2022', url: '/informes/informe-anual-2022.pdf', image: '/images/informe-anual-2022-cover.jpg' },
+  { title: 'Informe Anual 2025', date: '2025', url: '/informes/informe-anual-2025.pdf', image: '/images/informe-anual-2025-cover.jpg' },
   { title: 'Cuadernillo INE', date: '2026', url: '/informes/cuadernillo-ine.pdf', image: '/images/cuadernillo-ine-cover.jpg' },
   { title: 'Conceptos Básicos', date: '2026', url: '/informes/conceptos-basicos.pdf', image: '/images/conceptos-basicos-cover.jpg' },
   { title: 'Violencia y Derechos Humanos Políticos', date: '2026', url: '/informes/violencia-dh-politica.pdf', image: '/images/violencia-dh-politica-cover.png' },

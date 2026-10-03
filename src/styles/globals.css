@@ -337,6 +337,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .report-card-title { font-weight: 600; font-size: 0.9rem; }
 .report-card-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; color: var(--color-accent); }
 
+/* ── Organigrama ────────────────────────── */
+.org-intro { text-align: center; color: var(--color-text-muted); max-width: 560px; margin: 0.75rem auto 0; }
+
+.org-chart { display: flex; flex-direction: column; align-items: center; margin-top: 2.5rem; }
+.org-node {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius);
+  padding: 0.85rem 1.5rem; font-weight: 600; font-size: 0.9rem; text-align: center;
+}
+.org-node-root { background: var(--color-accent); color: #fff; border: none; }
+.org-line { width: 2px; height: 32px; background: var(--color-border); }
+
+.org-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; width: 100%; }
+.org-grid .org-node { flex: 1 1 220px; max-width: 260px; }
+
 /* ── Responsivo ─────────────────────────── */
 @media (max-width: 900px) {
   .posts-grid.featured { grid-template-columns: 1fr; }

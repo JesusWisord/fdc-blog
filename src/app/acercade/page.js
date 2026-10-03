@@ -1,39 +1,57 @@
-import { ExternalLink } from 'lucide-react'
-
 export const metadata = { title: 'Acerca de' }
 
-const SOCIAL = [
-  { label: 'Twitter / X', url: 'https://twitter.com/FueraCloset_AC', icon: '/images/x-icon.png' },
-  { label: 'Facebook', url: 'https://www.facebook.com/fueradelclosetradio', icon: '/images/facebook-icon.png' },
-  { label: 'Instagram', url: 'https://www.instagram.com/fueracloset_ac', icon: '/images/instagram-icon.png' },
-  { label: 'TikTok', url: 'https://www.tiktok.com/@fueradelcloset_ac', icon: '/images/tiktok-icon.png' },
+const SECTIONS = [
+  {
+    title: '¿Qué es FDC?',
+    body: 'Somos una organización de la sociedad civil, orientada a la promoción, difusión y defensa de los derechos humanos de la diversidad sexual y de género, además de la prevención de la discriminación motivada por la orientación sexual, expresión de género o identidad de género, en el Estado de México.',
+  },
+  {
+    title: 'Misión',
+    body: 'Brindar asesoría psicológica, médica y legal a las personas de la población LGBTTTI de la entidad que lo requieran, además de realizar acciones políticas, artísticas, audiovisuales y culturales que coadyuven a disminuir y prevenir la discriminación en su contra.',
+  },
+  {
+    title: 'Visión',
+    body: 'Ser un referente como asociación civil a nivel nacional que trabaja en la defensa de los derechos humanos de la población LGBTTTIQANB+ en el Estado de México.',
+  },
 ]
+
+const ESTRUCTURA = {
+  title: '¿Cómo se conforma FDC?',
+  items: [
+    'Mesa Directiva – Asociadas, asociadxs y asociados',
+    'Coordinaciones',
+    'Voluntariado',
+  ],
+}
 
 export default function AboutPage() {
   return (
     <main className="container">
       <div className="about-page">
-        <h1 style={{ textAlign: 'center' }}>Acerca de Fuera del Clóset A. C.</h1>
+        {SECTIONS.map(({ title, body }, i) => (
+          <div key={title} style={{ marginTop: i === 0 ? 0 : '2.5rem' }}>
+            <h2 style={{
+              fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700,
+              color: 'var(--color-accent)', textAlign: 'center', marginBottom: '1rem',
+            }}>
+              {title}
+            </h2>
+            <p style={{ textAlign: 'justify', textAlignLast: 'center' }}>{body}</p>
+          </div>
+        ))}
 
-        <div style={{ textAlign: 'justify', textAlignLast: 'center' }}>
-          <p>Fuera del Clóset A. C. es una organización de la sociedad civil con sede en Toluca, Estado de México, dedicada a la defensa y promoción de los derechos humanos de las personas lesbianas, gays, bisexuales, transexuales, transgénero, travestis e intersexuales (LGBTTTI+).</p>
-
-          <p>A través de documentación, difusión y acciones de incidencia, buscamos visibilizar la situación de derechos humanos de la comunidad LGBTTTI+ en México, con especial énfasis en el Estado de México.</p>
-
-          <p>Nuestra organización colabora con colectivos, activistas y personas afectadas para generar información y promover cambios estructurales que garanticen una vida digna y libre de violencia para todas las personas.</p>
-        </div>
-
-        {/* Redes */}
-        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          {SOCIAL.map(({ label, url, icon }) => (
-            <a key={label} href={url} target="_blank" rel="noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.6rem 1.2rem', border: '1px solid var(--color-border)',
-                borderRadius: 'var(--radius)', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
-              <img src={icon} alt={label} style={{ width: 20, height: 20, objectFit: 'contain' }} />
-              {label} <ExternalLink size={13} />
-            </a>
-          ))}
+        <div style={{ marginTop: '2.5rem' }}>
+          <h2 style={{
+            fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700,
+            color: 'var(--color-accent)', textAlign: 'center', marginBottom: '1rem',
+          }}>
+            {ESTRUCTURA.title}
+          </h2>
+          <ul style={{ maxWidth: 480, margin: '0 auto', color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.85 }}>
+            {ESTRUCTURA.items.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </main>
